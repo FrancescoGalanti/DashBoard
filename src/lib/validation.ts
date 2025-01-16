@@ -10,4 +10,3 @@ export const menteeFormSchema = z.object({
     street: z.string().min(1, { message: 'Street is required' }),
     notes: z.union([z.literal(''), z.string().trim().max(10000)]),
 })
-

@@ -1,5 +1,6 @@
 import { ReactNode } from "react";
 import { twMerge } from "tailwind-merge";
+
 type ButtonProps = {
     children: ReactNode,
     className?: string,

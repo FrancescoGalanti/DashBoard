@@ -1,8 +1,6 @@
 import { LayoutDashboard, User } from "lucide-react"
 import NavItem from "./NavItem"
 
-
-
 const routes = [{
     label: "Dashboard",
     icon: <LayoutDashboard size={16} />,
@@ -13,7 +11,6 @@ const routes = [{
     icon: <User size={16} />,
     href: "/account"
 }]
-
 
 export default function MainNav() {
     const activeRoute = "/dashboard";
@@ -27,7 +24,7 @@ export default function MainNav() {
                                 {element.icon}
                                 {element.label}
                             </a>
-                        </NavItem >
+                        </NavItem>
                     ))
                 }
             </ul>

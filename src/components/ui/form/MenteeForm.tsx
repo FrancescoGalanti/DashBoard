@@ -13,11 +13,10 @@ type MenteeFormProps = {
     actionType?: "add" | "edit"
 }
 
-
 export default function MenteeForm({ isVisible, hideModal, actionType = "add" }: MenteeFormProps) {
     const { addNewMentees, selectedMentee, updateMentess } = useMenteeContext();
-
     const modalRef = useRef<HTMLDialogElement>(null)
+
     useEffect(() => {
         if (isVisible) {
             modalRef.current?.showModal();
@@ -25,7 +24,6 @@ export default function MenteeForm({ isVisible, hideModal, actionType = "add" }:
             modalRef.current?.close();
         }
     }, [isVisible])
-
 
     let defaultValuesObj = {}
 
@@ -54,7 +52,6 @@ export default function MenteeForm({ isVisible, hideModal, actionType = "add" }:
         defaultValues: defaultValuesObj
     })
 
-
     const onSubmit: SubmitHandler<Inputs> = (data) => {
         const newMentess: MenteeEsential = {
             address: {
@@ -80,16 +77,9 @@ export default function MenteeForm({ isVisible, hideModal, actionType = "add" }:
         }
 
         hideModal();
-
-
-
     }
 
-
-
-
     return (
-
         <dialog onClose={hideModal} className="w-full max-w-xl p-4 backdrop:bg-primaryDark/20" ref={modalRef}>
             <div className="flex justify-between mb-4">
                 <h1 className="text-black font-bold">{actionType === "add" ? "Add a new " : "Edit "}mentee</h1>
@@ -107,8 +97,6 @@ export default function MenteeForm({ isVisible, hideModal, actionType = "add" }:
                         )
                     }
                 </div>
-
-
                 <div>
                     <label className="block font-bold" htmlFor="email">Email</label>
                     <input className="border w-full rounded-sm" id="email" {...register("email")} />
@@ -178,6 +166,4 @@ export default function MenteeForm({ isVisible, hideModal, actionType = "add" }:
             </form>
         </dialog>
     )
-
-
 }

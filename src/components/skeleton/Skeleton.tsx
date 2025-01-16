@@ -13,5 +13,4 @@ export default function Skeleton({ children }: SkeletonProps) {
     )
 }
 
-
 Skeleton.List = List;

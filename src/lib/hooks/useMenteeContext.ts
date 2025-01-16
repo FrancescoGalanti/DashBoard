@@ -1,7 +1,6 @@
 import { useContext } from "react";
 import { MenteeContext } from "../../components/context/MenteeContextProvider";
 
-
 export function useMenteeContext() {
     const context = useContext(MenteeContext);
 

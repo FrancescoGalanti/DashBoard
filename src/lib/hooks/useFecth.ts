@@ -5,6 +5,7 @@ export function useFecth(url: string) {
     const [data, setData] = useState<Mentee[] | null>(null)
     const [isLoading, setIsLoading] = useState(false)
     const [error, setError] = useState<string | null>()
+
     useEffect(() => {
         setIsLoading(true)
 
@@ -28,13 +29,9 @@ export function useFecth(url: string) {
             } finally {
                 setIsLoading(false)
             }
-
-
-
         }
 
         getData()
-
     }, [url])
 
     return { data, isLoading, error }

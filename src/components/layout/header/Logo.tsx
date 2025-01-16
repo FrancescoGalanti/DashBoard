@@ -9,8 +9,8 @@ type LogoProps = {
 export default function Logo({ className, iconSize = 20 }: LogoProps) {
     return (
         <a className={twMerge('flex items-center gap-2', className)} href='/'>
-            < Handshake size={iconSize} />
+            <Handshake size={iconSize} />
             <p>Mentor Assistant</p>
-        </a >
+        </a>
     )
 }
