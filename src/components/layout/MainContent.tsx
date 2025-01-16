@@ -9,7 +9,6 @@ import SearchForm from "../dashboard/SearchForm";
 import Stats from "../dashboard/Stats";
 import UserCardList from "../dashboard/UserCardList";
 
-
 export default function MainContent() {
     return (
         <main className="grow">

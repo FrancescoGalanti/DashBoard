@@ -1,8 +1,5 @@
-
 import { twMerge } from "tailwind-merge";
 import { useMenteeContext } from "../../lib/hooks/useMenteeContext";
-import { getAvatarLetters } from "../../lib/utils/getAvatarLetters";
-import Skeleton from "../skeleton/skeleton";
 import ErrorMessage from "../ui/ErrorMessage";
 import Avatar from "./Avatar";
 import { useSearchContext } from "../../lib/hooks/useSearchContext";
@@ -10,13 +7,14 @@ import { Plus } from "lucide-react";
 import Button from "../ui/Button";
 import MenteeForm from "../ui/form/MenteeForm";
 import { useState } from "react";
+import Skeleton from "../skeleton/Skeleton";
 
 
 export default function UserCardList() {
-
+    const { mentees, isLoading, error, activeMenteeId, handleActiveMentee } = useMenteeContext()
     const { searchQuery } = useSearchContext()
-
     const [isVisible, setIsVisible] = useState(false);
+    const filteredMentees = mentees?.filter(mentee => mentee.name.toLowerCase().includes(searchQuery.toLowerCase()))
 
     function showModal() {
         setIsVisible(true)
@@ -26,16 +24,10 @@ export default function UserCardList() {
         setIsVisible(false);
     }
 
-
-    const { mentees, isLoading, error, activeMenteeId, handleActiveMentee } = useMenteeContext()
-
-    const filteredMentees = mentees?.filter(mentee => mentee.name.toLowerCase().includes(searchQuery.toLowerCase()))
-
     return (
         <aside className=" h-full grid grid-rows-[1fr_auto]">
             {
                 isLoading && (
-
                     <Skeleton>
                         <Skeleton.List />
                     </Skeleton>
@@ -49,7 +41,6 @@ export default function UserCardList() {
                 )
             }
             <ul className="space-y-2 overflow-auto">
-
                 {
                     filteredMentees?.map(element => (
                         <li key={element.id} >
@@ -62,7 +53,6 @@ export default function UserCardList() {
                         </li>
                     ))
                 }
-
             </ul>
             <div className="mt-4 flex flex-row-reverse">
                 <Button onClick={showModal} variance="icon">

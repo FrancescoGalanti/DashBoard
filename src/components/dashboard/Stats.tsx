@@ -1,6 +1,4 @@
-
 import { useMenteeContext } from "../../lib/hooks/useMenteeContext"
-
 
 export default function Stats() {
     const { totaltMentess } = useMenteeContext()

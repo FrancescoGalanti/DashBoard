@@ -11,8 +11,6 @@ type TSearchContext = {
 
 export const SearchContext = createContext<TSearchContext | null>(null);
 
-
-
 export default function SearchContextProvider({ children }: SearchContextProviderProps) {
     const [searchQuery, setSearchQuery] = useState("")
 

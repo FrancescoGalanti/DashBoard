@@ -1,11 +1,10 @@
-
 import { twMerge } from "tailwind-merge"
 
 type DashBoardBottom = {
     className?: string,
     children: React.ReactNode
-
 }
+
 export default function DashBoardBottom({ className, children }: DashBoardBottom) {
     return (
         <section className={twMerge(className)}>

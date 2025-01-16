@@ -1,5 +1,3 @@
-
-
 import { useState } from "react";
 import { useMenteeContext } from "../../lib/hooks/useMenteeContext";
 import Button from "../ui/Button";
@@ -49,22 +47,22 @@ export default function DetailUserCard() {
             <section className="grid grid-cols-2 gap-2 *:border *:rounded-md *:p-4">
                 <div className="">
                     <h3 className="font-bold">Notes</h3>
-                    <p>{selectedMentee.notes?.length === 0 ? "no notes of the selected mentee" : selectedMentee.notes
-                    }
-
+                    <p>
+                        {
+                            selectedMentee.notes?.length === 0 ? "no notes of the selected mentee" : selectedMentee.notes
+                        }
                     </p>
                 </div>
                 <div>
                     <h3 className="font-bold">Adress Info</h3>
                     <ul className="*:grid *:grid-cols-[70px_1fr]" >
-                        <li > <strong>Street :</strong>{selectedMentee.address.street}</li>
-                        <li > <strong>City :</strong>{selectedMentee.address.city}</li>
-                        <li > <strong>State :</strong>{selectedMentee.address.state ?? "No State provided yet"}</li>
-                        <li > <strong >Zip :</strong>{selectedMentee.address.zipcode}</li>
+                        <li><strong>Street :</strong>{selectedMentee.address.street}</li>
+                        <li><strong>City :</strong>{selectedMentee.address.city}</li>
+                        <li><strong>State :</strong>{selectedMentee.address.state ?? "No State provided yet"}</li>
+                        <li><strong>Zip :</strong>{selectedMentee.address.zipcode}</li>
                     </ul>
                 </div>
             </section>
         </main>
-
     )
 }

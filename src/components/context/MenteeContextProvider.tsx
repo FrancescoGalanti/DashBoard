@@ -29,14 +29,12 @@ export default function MenteeContextProvider({ children }: MenteeContextProvide
     const selectedMentee = mentees?.find(element => element.id === activeMenteeId);
 
     useEffect(() => {
-        console.log(data);
-        setMentees(data);
+        if (data)
+            setMentees(data);
     }, [data])
 
     function addNewMentees(newMentee: MenteeEsential) {
-        console.log(newMentee, "addnewMenteess")
         const newMenteeId = Date.now();
-
         setMentees(prev =>
             [
                 {
@@ -46,15 +44,10 @@ export default function MenteeContextProvider({ children }: MenteeContextProvide
                 ...prev,
             ]
         )
-
         setActiveMenteeId(newMenteeId)
-
-
     }
 
     function removeMentess() {
-        console.log(activeMenteeId, "rimozione")
-
         setMentees(prev => prev.filter(mentee => mentee.id !== activeMenteeId))
         setActiveMenteeId(null);
     }
@@ -67,7 +60,6 @@ export default function MenteeContextProvider({ children }: MenteeContextProvide
                     ...mentee
                 }
             }
-
             return item
         }))
     }
